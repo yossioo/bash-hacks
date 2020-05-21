@@ -107,12 +107,13 @@ elif [[ $(lsb_release -cs) == 'bionic' ]]; then
 fi
 
 # # History tweaks
-# shopt -s histappend
-# shopt -s cmdhist
-export PROMPT_COMMAND='history -a'
-export HISTFILESIZE=-1
-export HISTSIZE=-1
-export HISTCONTROL=ignoreboth
-export HISTIGNORE='l:ls:bg:fg:history:select_ws:kill-tmux-gz:test-launch:qe-file:kp'
-export HISTTIMEFORMAT='%F %T '
+shopt -s histappend
+shopt -s cmdhist
+#export PROMPT_COMMAND='history -a'
+export HISTFILESIZE=5000000000 #-1
+export HISTSIZE=5000000 # -1
+export HISTCONTROL=ignoredups:erasedups # ignoreboth
+export HISTIGNORE='l:ls:bg:fg:history:kp'
+export HISTTIMEFORMAT="[$(tput setaf 6)%F %T$(tput sgr0)]: " # colorful date
+# export HISTTIMEFORMAT='%F %T '
 
