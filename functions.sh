@@ -157,21 +157,7 @@ function RM() {
   export ${arg}
 }
 
-function rt() {
-  topic_filter=${1:-0}
-  if [ ${topic_filter} == 0 ]; then
-    rostopic list
-  else
-    rostopic list | grep ${topic_filter}
-  fi
-}
 
-function fixJB() {
-  sed -i -e 's/Exec="/Exec=bash -i -c "/g' ~/.local/share/applications/jetbrains-clion.desktop
-  sed -i -e 's/Name=CLion/Name=ROS flavored CLion/g' ~/.local/share/applications/jetbrains-clion.desktop
-  sed -i -e 's/Exec="/Exec=bash -i -c "/g' ~/.local/share/applications/jetbrains-pycharm.desktop
-  sed -i -e 's/Name=PyCharm Professional/Name=ROS flavored PyCharm Professional/g' ~/.local/share/applications/jetbrains-pycharm.desktop
-}
 
 function upd_desktop_shortcuts() {
   ln -nsf ~/Dropbox/zis_iz_backup/DesktopLinks/*.desktop ~/Desktop/

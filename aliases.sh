@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [[ ${SKIP} == 1 ]]; then
-  return 1
+    return 1
 fi
 #return 1
 
@@ -36,7 +36,8 @@ LAUNCH_FILE=$HOME/.latest_launch
 #alias test_vision='roslaunch angry_vision test.launch'
 
 alias cac='catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release'
-
+alias delete='gio trash '
+alias del='gio trash '
 alias whgit='git config --get remote.origin.url'
 alias e='nano '
 alias mm='sudo chown -R $USER:$USER'
@@ -63,19 +64,13 @@ alias df='df -h -x squashfs -x tmpfs -x devtmpfs'
 alias '?'='xwininfo'
 alias c='clear'
 alias d='xdg-open '
+alias p3='python3'
+alias proc='ps -ef | grep '
 alias ..='cd ..'
-alias nedal='nano ~/Dropbox/zis_iz_backup/my_aliases.sh'
-alias edal='atom ~/Dropbox/zis_iz_backup/my_aliases.sh'
-alias edf='atom ~/Dropbox/zis_iz_backup/my_bash_functions.sh'
-alias kedal='tmux new -s kedal -d "kate ~/Dropbox/zis_iz_backup/my_aliases.sh"'
 alias whR='nmap -sn 10.0.0.0/24'
-alias whG='nmap -sn 192.168.131.0/24'
 alias wapt='ps aux | grep -i apt'
 #alias upd_desktop_shortcuts='ln -nsf ~/Dropbox/zis_iz_backup/DesktopLinks/*.desktop ~/Desktop/;'
 alias upd_dash_shortcuts='ln -nsf ~/Dropbox/zis_iz_backup/DesktopLinks/*.desktop ~/.local/share/applications/'
-
-# Tmux aliases:
-alias ktmuxa='until tmux '
 
 alias wnv="watch -n 0.2 'lsusb  |  grep -i nvidia'"
 # alias wnv="watch -n 0.2 'DV=$(lsusb  |  grep -i nvidia); if [ -z $DV ]; then printf \"No NVidia device found.\n\"; else printf \"Found: $DV\n\"; fi'"
@@ -100,10 +95,10 @@ export EDITOR='nano -w'
 # Setup the bash prompt depending on the distro:
 # Read more on: https://www.booleanworld.com/customizing-coloring-bash-prompt/
 if [[ $(lsb_release -cs) == 'xenial' ]]; then
-  PS1='$(if [[ $? == 0 ]]; then echo "\[\e[32m\]okay"; else echo "\[\e[31m\]fail"; fi) \[\033[01;49;92m\]\u\[\033[00;49;92m\]@\h\[\033[00m\] \[\033[03;94m\]\w\[\033[00m\]\[\033[38;5;51m\]$(__git_ps1)\[\033[00m\]:\n\$ '
-elif [[ $(lsb_release -cs) == 'bionic' ]]; then
-  PS1='$(if [[ $? == 0 ]]; then echo "\[\033[01;49;92m\]\u@\h\[\033[00m\]"; else echo "\[\e[31m\]FAIL @\h\[\033[00m\]"; fi) \[\033[03;94m\]\w\[\033[00m\]\[\033[38;5;51m\]$(__git_ps1)\[\033[00m\]:\n\$ '
-  # PS1='$(if [[ $? == 0 ]]; then echo "\[\e[32m\]✅"; else echo "\[\e[31m\]❌"; fi) \[\033[01;49;92m\]\u\[\033[00;49;92m\]🤖\h\[\033[00m\] \[\033[03;94m\]\w\[\033[00m\]\[\033[38;5;51m\]$(__git_ps1)\[\033[00m\]:\n└─➡ \$ '
+    PS1='$(if [[ $? == 0 ]]; then echo "\[\e[32m\]okay"; else echo "\[\e[31m\]fail"; fi) \[\033[01;49;92m\]\u\[\033[00;49;92m\]@\h\[\033[00m\] \[\033[03;94m\]\w\[\033[00m\]\[\033[38;5;51m\]$(__git_ps1)\[\033[00m\]:\n\$ '
+    elif [[ $(lsb_release -cs) == 'bionic' ]]; then
+    PS1='$(if [[ $? == 0 ]]; then echo "\[\033[01;49;92m\]\u@\h\[\033[00m\]"; else echo "\[\e[31m\]FAIL @\h\[\033[00m\]"; fi) \[\033[03;94m\]\w\[\033[00m\]\[\033[38;5;51m\]$(__git_ps1)\[\033[00m\]\n\$ '
+    # PS1='$(if [[ $? == 0 ]]; then echo "\[\e[32m\]✅"; else echo "\[\e[31m\]❌"; fi) \[\033[01;49;92m\]\u\[\033[00;49;92m\]🤖\h\[\033[00m\] \[\033[03;94m\]\w\[\033[00m\]\[\033[38;5;51m\]$(__git_ps1)\[\033[00m\]:\n└─➡ \$ '
 fi
 
 # # History tweaks
