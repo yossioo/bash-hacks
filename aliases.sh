@@ -32,7 +32,7 @@ alias whgit='git config --get remote.origin.url'
 alias e='nano '
 alias mm='sudo chown -R $USER:$USER'
 alias x='chmod +x '
-alias o='sudo chown $USER:$USER '
+alias o='sudo chown -R $USER:$USER '
 alias mke='make -j`nproc`'
 
 # Gstreamer and FFmpeg
