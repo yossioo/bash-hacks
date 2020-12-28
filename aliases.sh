@@ -21,13 +21,6 @@ YELLOW_TXT='\e[93m'
 NC='\033[0m'
 
 
-ROS1_NAME='melodic'
-ROS2_NAME='dashing'
-
-
-WS_FILE=$HOME/.ros_ws_selected
-LAUNCH_FILE=$HOME/.latest_launch
-
 
 # Define aliases:
 #alias my_ip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
@@ -42,7 +35,7 @@ alias whgit='git config --get remote.origin.url'
 alias e='nano '
 alias mm='sudo chown -R $USER:$USER'
 alias x='chmod +x '
-alias o='sudo chown $USER:$USER '
+alias o='sudo chown $USER:$USER -R '
 alias mke='make -j`nproc`'
 
 # Gstreamer and FFmpeg
@@ -57,7 +50,8 @@ alias saug='sudo apt upgrade'
 alias saar='sudo apt autoremove'
 alias alu='apt list --upgradable'
 alias l='ls  --color=auto -lh --group-directories-first'
-alias ll='ls --color=auto -lhaF --group-directories-first'
+alias ll='ls --color=auto -lhF --group-directories-first'
+alias lla='ls --color=auto -lhaF --group-directories-first'
 alias fkc='echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode'
 alias p='ping -vc4'
 alias df='df -h -x squashfs -x tmpfs -x devtmpfs'
@@ -94,21 +88,21 @@ export EDITOR='nano -w'
 
 # Setup the bash prompt depending on the distro:
 # Read more on: https://www.booleanworld.com/customizing-coloring-bash-prompt/
-if [[ $(lsb_release -cs) == 'xenial' ]]; then
-    PS1='$(if [[ $? == 0 ]]; then echo "\[\e[32m\]okay"; else echo "\[\e[31m\]fail"; fi) \[\033[01;49;92m\]\u\[\033[00;49;92m\]@\h\[\033[00m\] \[\033[03;94m\]\w\[\033[00m\]\[\033[38;5;51m\]$(__git_ps1)\[\033[00m\]:\n\$ '
-    elif [[ $(lsb_release -cs) == 'bionic' ]]; then
-    PS1='$(if [[ $? == 0 ]]; then echo "\[\033[01;49;92m\]\u@\h\[\033[00m\]"; else echo "\[\e[31m\]FAIL @\h\[\033[00m\]"; fi) \[\033[03;94m\]\w\[\033[00m\]\[\033[38;5;51m\]$(__git_ps1)\[\033[00m\]\n\$ '
-    # PS1='$(if [[ $? == 0 ]]; then echo "\[\e[32m\]✅"; else echo "\[\e[31m\]❌"; fi) \[\033[01;49;92m\]\u\[\033[00;49;92m\]🤖\h\[\033[00m\] \[\033[03;94m\]\w\[\033[00m\]\[\033[38;5;51m\]$(__git_ps1)\[\033[00m\]:\n└─➡ \$ '
-fi
+#if [[ $(lsb_release -cs) == 'xenial' ]]; then
+#    PS1='$(if [[ $? == 0 ]]; then echo "\[\e[32m\]okay"; else echo "\[\e[31m\]fail"; fi) \[\033[01;49;92m\]\u\[\033[00;49;92m\]@\h\[\033[00m\] \[\033[03;94m\]\w\[\033[00m\]\[\033[38;5;51m\]$(__git_ps1)\[\033[00m\]:\n\$ '
+#    elif [[ $(lsb_release -cs) == 'bionic' ]]; then
+#    PS1='$(if [[ $? == 0 ]]; then echo "\[\033[01;49;92m\]\u@\h\[\033[00m\]"; else echo "\[\e[31m\]FAIL @\h\[\033[00m\]"; fi) \[\033[03;94m\]\w\[\033[00m\]\[\033[38;5;51m\]$(__git_ps1)\[\033[00m\]\n\$ '
+#    # PS1='$(if [[ $? == 0 ]]; then echo "\[\e[32m\]✅"; else echo "\[\e[31m\]❌"; fi) \[\033[01;49;92m\]\u\[\033[00;49;92m\]🤖\h\[\033[00m\] \[\033[03;94m\]\w\[\033[00m\]\[\033[38;5;51m\]$(__git_ps1)\[\033[00m\]:\n└─➡ \$ '
+#fi
 
 # # History tweaks
 shopt -s histappend
 shopt -s cmdhist
 #export PROMPT_COMMAND='history -a'
-export HISTFILESIZE=5000000000 #-1
-export HISTSIZE=5000000 # -1
+# export HISTFILESIZE=5000000000 #-1
+# export HISTSIZE=5000000 # -1
 export HISTCONTROL=ignoredups:erasedups # ignoreboth
-export HISTIGNORE='l:ls:bg:fg:history:kp'
+# export HISTIGNORE='l:ls:bg:fg:history:kp'
 export HISTTIMEFORMAT="[$(tput setaf 6)%F %T$(tput sgr0)]: " # colorful date
 # export HISTTIMEFORMAT='%F %T '
 
